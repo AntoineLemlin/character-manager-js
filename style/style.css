@@ -1,1 +1,71 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* body {
+  background: -webkit-gradient(linear, left top, right top, from(#4B4EA2), to(#E14444)) no-repeat;
+  background: linear-gradient(left, #4B4EA2, #E14444) no-repeat;
+  background-size: 140%;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  width: 90%;
+  margin: auto;
+}
+
+* body .profilpictures {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: auto;
+}
+
+* body .profilpictures img {
+  width: auto;
+  height: 100%;
+}
+
+* body h2 {
+  font-family: 'Permanent Marker', cursive;
+}
+
+* body .boxes {
+  background-color: #363333;
+  width: 262px;
+  height: 350px;
+  margin: auto;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+* body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  border-bottom: 2px solid white;
+  padding: 20px 0px;
+}
+
+* body header h1 {
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+  margin-right: auto;
+}
+
+* body header input {
+  width: 250px;
+  height: 35px;
+  border-radius: 10px;
+  padding: 0px 0px 0px 5px;
+}
+/*# sourceMappingURL=style.css.map */
