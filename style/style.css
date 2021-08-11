@@ -100,13 +100,12 @@
   height: 100px;
   overflow: hidden;
   border-radius: 50%;
-  margin: 0 auto;
+  margin: auto;
 }
 
 * body main .grid .card .profile-pic img {
   width: auto;
   height: 100%;
-  margin-left: -25px;
 }
 
 * body main .grid .card h2 {
