@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -6,17 +8,94 @@
 }
 
 * body {
-  background: -webkit-gradient(linear, left top, right top, from(#4B4EA2), to(#E14444)) no-repeat;
-  background: linear-gradient(left, #4B4EA2, #E14444) no-repeat;
+  background: -webkit-gradient(linear, left top, right top, from(#4b4ea2), to(#e14444)) no-repeat;
+  background: linear-gradient(left, #4b4ea2, #e14444) no-repeat;
   background-size: 140%;
   min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  color: white;
   width: 90%;
   margin: auto;
+  font-family: "Roboto", sans-serif;
 }
 
-* body .profilpictures {
+* body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 2px solid white;
+  padding: 20px;
+  margin: 30px 0;
+}
+
+* body header h1 {
+  margin-right: auto;
+  color: white;
+  font-family: "Permanent Marker", cursive;
+}
+
+* body header input {
+  width: 250px;
+  height: 40px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  padding: 0 0 0 5px;
+}
+
+* body main .grid {
+  width: 100%;
+  height: auto;
+  margin: 60px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(320px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  -ms-grid-rows: (minmax(19.375vw, 1fr))[auto-fit];
+      grid-template-rows: repeat(auto-fit, minmax(19.375vw, 1fr));
+  grid-auto-flow: dense;
+  -webkit-column-gap: 43px;
+          column-gap: 43px;
+  row-gap: 40px;
+}
+
+* body main .grid .card {
+  width: 277px;
+  height: 370px;
+  background-color: #363333;
+  padding: 20px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  border-radius: 30px;
+  margin: auto;
+  -webkit-box-shadow: 5px 5px 15px #363333;
+          box-shadow: 5px 5px 15px #363333;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+}
+
+* body main .grid .card:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+* body main .grid .card .profile-pic {
+  display: inline-block;
+  position: relative;
   width: 100px;
   height: 100px;
   overflow: hidden;
@@ -24,48 +103,106 @@
   margin: auto;
 }
 
-* body .profilpictures img {
+* body main .grid .card .profile-pic img {
   width: auto;
   height: 100%;
 }
 
-* body h2 {
-  font-family: 'Permanent Marker', cursive;
+* body main .grid .card h2 {
+  color: white;
+  font-size: 19px;
+  font-weight: 400;
+  margin: 25px 0 20px 0;
+  font-family: "Permanent Marker", cursive;
 }
 
-* body .boxes {
-  background-color: #363333;
-  width: 262px;
-  height: 350px;
-  margin: auto;
-  border-radius: 30px;
-  padding: 20px;
+* body main .grid .card p {
+  display: block;
+  color: white;
+  height: 32%;
+  font-size: 13px;
+  width: 100%;
+  overflow: hidden;
 }
 
-* body header {
+* body main .grid .card a {
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 10px;
+  width: 100px;
+  font-size: 12px;
+  border-radius: 10px;
+  margin-left: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  border-bottom: 2px solid white;
+  margin-top: 15px;
+  font-style: italic;
+  font-weight: 500;
+  -webkit-transition: background-color 0.25s;
+  transition: background-color 0.25s;
+}
+
+* body main .grid .card a:hover {
+  color: #363333;
+  background-color: white;
+}
+
+* body main .add-new-character {
+  width: 450px;
+  height: 25px;
+  background-color: #4b7cfb;
   padding: 20px 0px;
-}
-
-* body header h1 {
-  font-family: 'Permanent Marker', cursive;
+  text-decoration: none;
   color: white;
-  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 30px auto;
+  border-radius: 10px;
+  font-size: 20px;
+  -webkit-box-shadow: 3px 3px 5px #363333;
+          box-shadow: 3px 3px 5px #363333;
+  -webkit-transition: background-color 0.25s;
+  transition: background-color 0.25s;
 }
 
-* body header input {
-  width: 250px;
-  height: 35px;
-  border-radius: 10px;
-  padding: 0px 0px 0px 5px;
+* body main .add-new-character:hover {
+  background-color: #1b5bff;
+}
+
+@media screen and (max-width: 480px) {
+  * body {
+    width: 100%;
+  }
+  * body header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * body header h1 {
+    white-space: nowrap;
+    margin-bottom: 20px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
