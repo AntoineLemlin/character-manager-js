@@ -21,18 +21,18 @@
 <body>
     <header>
         <h1>Character Manager</h1>
-        <input placeholder="Search character" type="text">
+        <input id="search-bar" placeholder="Search character" type="text">
     </header>
     <main>
         <section id="grid" class="grid">
             <template id="template-id">
-                <article class="card">
+                <article id="card" class="card">
                     <div class="profile-pic">
                         <img id="image" src="https://www.looper.com/img/gallery/rumor-report-will-spider-man-3-feature-another-major-avenger/intro-1571147824.jpg" alt="Spiderman">
                     </div>
                     <h2 id="name">Spiderman</h2>
                     <p id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo esse debitis repudiandae nulla culpa. In!</p>
-                    <a href="#">See character</a>
+                    <a id="see-character" href="#">See character</a>
                 </article>
             </template>
         </section>
@@ -40,6 +40,7 @@
 
         <a class="add-new-character" href="#">Add a new character to the collection</a>
     </main>
-    <script src="app.js"></script>
+    <script src="JS/fetchData.js"></script>
+    <script src="JS/index.js"></script>
 </body>
 </html>
