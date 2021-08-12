@@ -12,7 +12,7 @@
   background: linear-gradient(left, #4b4ea2, #e14444) no-repeat;
   background-size: 140%;
   min-height: 100vh;
-  width: 90%;
+  max-width: 90%;
   margin: auto;
   font-family: "Roboto", sans-serif;
 }
@@ -146,13 +146,40 @@
   margin-top: 15px;
   font-style: italic;
   font-weight: 500;
-  -webkit-transition: background-color 0.25s;
-  transition: background-color 0.25s;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
 }
 
 * body main .grid .card a:hover {
-  color: #363333;
+  color: black;
+}
+
+* body main .grid .card a::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: white;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  z-index: -1;
+}
+
+* body main .grid .card a:hover::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 
 * body main .add-new-character {
