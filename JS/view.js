@@ -2,18 +2,17 @@
 let queryString = location.search.substring(1);
 
 document.addEventListener("DOMContentLoaded", async function () {
-
       let url = await fetch(`https://character-database.becode.xyz/characters/${queryString}`);
       const obj = await url.json();
-
+      
       document.getElementById("image").src = `data:image/jpeg;base64,${obj.image}`;
       document.getElementById("name").innerHTML = obj.name;
       document.getElementById("short-description").innerHTML = obj.shortDescription;
       document.getElementById("description").innerHTML = obj.description;
       document.getElementById(
         "btn-update"
-      ).href = `create_character.html?${obj.id}`;
- 
+        ).href = `create_character.html?${obj.id}`;
+        
 });
 
 document

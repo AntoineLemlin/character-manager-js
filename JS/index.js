@@ -1,3 +1,10 @@
+window.addEventListener("load", function(){
+  this.setTimeout(() => {
+    document.getElementById("loader").style.display = "none"
+
+  }, 1500)
+})
+
 // Function to display the cards on the main page
 const displayCards = (obj) => {
   // For each person in the object...
@@ -29,9 +36,11 @@ document.addEventListener("DOMContentLoaded", async function () {
   const obj = await url.json();
   console.log(obj);
   
+
   // I display the cards
   displayCards(obj);
 });
+
 
 
 document.getElementById("search-bar").addEventListener("keyup", function(){

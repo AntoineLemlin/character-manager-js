@@ -4,26 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
     <title>Character Manager</title>
 </head>
 <body>
-    
-    <section>
-        <form action="">
-            <div id="preview-container"><img id="preview" src="" alt=""></div><br>
-            <input onchange="imageUploaded()" type="file" id="myFile" name="filename"><br>
-            <input class="get-data" placeholder="name" type="text" id="fname" name="fname"><br><br>
-            <input class="get-data" placeholder="short-description" type="text" id="short-description" name="short-description"><br><br>
-            <input class="get-data" placeholder="description" type="text" id="description" name="description"><br><br>
-            <button id="add-character" type="button">Submit</button>
-            <button id="delete-character" type="button">Delete</button>
-          </form>
-    </section>
+    <header>
+        <h1><a href="index.html">Character Manager</a></h1>
+    </header>
 
-    </div>
-    <script src="JS/fetchData.js"></script>
-    <script src="JS/create.js"></script>
+    
+    <main>
+        <section id ="section-create">
+        
+                <form action="">
+                    <div id="preview-container"><img id="preview" src="" alt=""></div><br>
+                    <input onchange="imageUploaded()" type="file" id="myFile" name="filename"><br>
+                    <input class="get-data" placeholder="Write a name" type="text" id="fname" name="fname"><br><br>
+                    <input class="get-data" placeholder="Write a short description" type="text" id="short-description" name="short-description"><br><br>
+                    <div type="text" id="editor" name="description"></div><br><br>
+                    <div id="buttons-container">
+                        <a href="#" id="add-character" >Save changes</a>
+                        <a href="#" id="delete-character">Delete</a>
+                    </div>
+                  </form>
+        
+        </section>
+    </main>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+        quill.root.dataset.placeholder = "Write the description here"
+        </script>
+        <script src="JS/create.js"></script>
 
 </body>
 </html>

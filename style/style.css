@@ -21,10 +21,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -38,6 +34,10 @@
 
 * body header h1 {
   margin-right: auto;
+}
+
+* body header h1 a {
+  text-decoration: none;
   color: white;
   font-family: "Permanent Marker", cursive;
 }
@@ -118,6 +118,9 @@
   font-weight: 400;
   margin: 25px 0 20px 0;
   font-family: "Permanent Marker", cursive;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 * body main .grid .card p {
@@ -229,10 +232,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   color: white;
+  min-height: 85vh;
+  padding: 60px 0 0 0;
+  margin-bottom: 100px;
 }
 
 * body main #section-view #image-container {
@@ -252,29 +255,69 @@
 }
 
 * body main #section-view #name {
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
   font-weight: 400;
-  font-size: 40px;
+  font-size: clamp(2.08vw, 40px, 1.5rem);
 }
 
 * body main #section-view #short-description {
   margin-top: 35px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 200;
 }
 
-* body main #section-view #description {
-  margin-top: 55px;
+* body main #section-view #description-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 55px 0 0 0;
+  width: 90%;
+}
+
+* body main #section-view #description-container #description {
+  font-weight: 300;
+}
+
+* body main #section-view #buttons-container {
+  margin-top: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 300px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 * body main #section-view #buttons-container a {
   text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 50px;
+  white-space: nowrap;
+  font-size: 15px;
+  font-style: italic;
 }
 
 * body main #section-view #buttons-container a:nth-child(1) {
   color: white;
-  background-color: #4B7CFB;
+  background-color: #4b7cfb;
+  padding: 15px 12px;
+  border-radius: 10px;
 }
 
-* body #preview-container {
+* body main #section-view #buttons-container a:nth-child(2) {
+  color: #bf3a30;
+  padding: 15px 12px;
+  border-radius: 10px;
+  border: 1px solid #bf3a30;
+  margin-bottom: 50px;
+}
+
+* body main #preview-container {
   display: inline-block;
   position: relative;
   width: 200px;
@@ -284,7 +327,7 @@
   border: 2px solid black;
 }
 
-* body #preview-container::before {
+* body main #preview-container::before {
   content: "Preview";
   color: white;
   width: 100%;
@@ -304,31 +347,285 @@
   z-index: -1;
 }
 
-* body #preview-container img {
+* body main #preview-container img {
   width: auto;
   height: 100%;
   z-index: 0;
 }
 
+* body .loader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: block;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border: 15px solid #bf40bf;
+  border-top-color: transparent;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 15px 2px #e0b0ff, inset 0 0 15px #cf9fff;
+          box-shadow: 0 0 15px 2px #e0b0ff, inset 0 0 15px #cf9fff;
+  -webkit-animation: loader 2s infinite ease;
+          animation: loader 2s infinite ease;
+}
+
+@-webkit-keyframes loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+* body #section-create {
+  background-color: #363333;
+  border-radius: 35px;
+  margin-bottom: 100px;
+}
+
+* body #section-create form {
+  margin: 0 auto;
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+* body #section-create form #myFile {
+  width: 115px;
+  background-color: transparent;
+  position: relative;
+  visibility: hidden;
+  z-index: 1;
+}
+
+* body #section-create form #myFile::before {
+  content: "Upload Image";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  cursor: pointer;
+  visibility: visible;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+* body #section-create form #editor {
+  min-height: 30vh;
+  width: 100%;
+  color: white;
+  border-radius: 0 0 10px 10px;
+}
+
+* body #section-create form .ql-toolbar {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+* body #section-create form .ql-editor.ql-blank::before {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+* body #section-create form #preview-container {
+  border: white solid 3px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
+
+* body #section-create form #fname {
+  background-color: #727071;
+  height: 50px;
+  font-style: italic;
+  font-family: "Permanent Marker", cursive;
+  font-size: 45px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* Positionner le placeholder correctement */
+  padding-left: 25px;
+  padding-top: 25px;
+  padding-bottom: 35px;
+}
+
+* body #section-create form #short-description {
+  background-color: #727071;
+  color: white;
+  height: 50px;
+  padding-left: 25px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+* body #section-create input {
+  color: white;
+  background-color: #727071;
+  border-radius: 35px;
+  width: 90%;
+  margin: auto;
+  border: none;
+}
+
+* body #section-create input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+* body #section-create input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+* body #section-create input::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+* body #section-create input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+* body #section-create #buttons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 300px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+* body #section-create #buttons-container a {
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 50px;
+  white-space: nowrap;
+  font-size: 20px;
+}
+
+* body #section-create #buttons-container a:nth-child(1) {
+  color: white;
+  background-color: #4b7cfb;
+  padding: 15px 12px;
+  border-radius: 10px;
+}
+
+* body #section-create #buttons-container a:nth-child(2) {
+  color: #bf3a30;
+  padding: 15px 12px;
+  border-radius: 10px;
+  border: 1px solid #bf3a30;
+  margin-bottom: 50px;
+}
+
 @media screen and (max-width: 480px) {
-  * body body {
+  body {
     width: 100%;
   }
-  * body body header {
+  body main .add-new-character {
+    font-size: 4vw;
+    width: 80vw;
+  }
+  header {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    text-align: center;
+  }
+  header h1 {
+    margin-bottom: 20px;
+  }
+  #section-view #name {
+    text-align: center;
+  }
+  #section-view #buttons-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
   }
-  * body body header h1 {
-    white-space: nowrap;
-    margin-bottom: 20px;
+  #section-create #buttons-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 /*# sourceMappingURL=style.css.map */

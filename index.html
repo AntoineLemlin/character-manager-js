@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>Character Manager</h1>
+        <h1><a href="index.html">Character Manager</a></h1>
         <input id="search-bar" placeholder="Search character" type="text">
     </header>
     <main>
@@ -29,7 +29,10 @@
 
         <a class="add-new-character" href="create_character.html">Add a new character to the collection</a>
     </main>
-    <script src="JS/fetchData.js"></script>
+    <div class="loader-wrapper">
+        <span id="loader" class="loader"><span class="loader-inner"></span></span>
+    </div>
+
     <script src="JS/index.js"></script>
 </body>
 </html>

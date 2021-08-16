@@ -8,15 +8,18 @@
     <title>Character Manager</title>
 </head>
 <body>
+
     <header>
-        <h1>Character Manager</h1>
+        <h1><a href="index.html">Character Manager</a></h1>
     </header>
     <main>
         <section id="section-view">
             <div id="image-container"><img id="image" src="" alt=""></div><br>
             <h2 id="name"></h2>
             <h6 id="short-description"></h6>
-            <p id="description"></p>
+            <div id="description-container">
+                <p id="description"></p>
+            </div>
 
             <div id="buttons-container">
                 <a id="btn-update" href="#">Update Character</a>
@@ -24,8 +27,6 @@
             </div>
         </section>
     </main>
-    
-    <script src="JS/fetchData.js"></script>
     <script src="JS/view.js"></script>
 </body>
 </html>
