@@ -34,8 +34,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   // I get the data from the url
   let url = await fetch("https://character-database.becode.xyz/characters");
   const obj = await url.json();
-  console.log(obj);
-  
 
   // I display the cards
   displayCards(obj);

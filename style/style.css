@@ -276,6 +276,7 @@
           justify-content: center;
   margin: 55px 0 0 0;
   width: 90%;
+  word-break: break-all;
 }
 
 * body main #section-view #description-container #description {

@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       exist = true;
 
       base64String = image; //In the function above, I set the preview as base64String
-      console.log(image);
       document.getElementById(
         "preview"
       ).src = `data:image/jpeg;base64,${image}`;
@@ -48,9 +47,10 @@ document
     let values = inputs.map(({ value }) => value.trim());
     const descriptionEditor =
       document.getElementById("editor").children[0].innerHTML;
+    
 
-    if (values.some(({ value }) => value === "")) {
-      console.log("there is an input empty");
+    if (values.some(({ value }) => value === "") || document.getElementById("editor").children[0].innerHTML === "") {
+      alert("there is an input empty");
       return;
     }
 
