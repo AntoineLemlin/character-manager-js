@@ -327,6 +327,7 @@
   overflow: hidden;
   border-radius: 50%;
   border: 2px solid black;
+  z-index: 0;
 }
 
 * body main #preview-container::before {
@@ -347,12 +348,14 @@
       -ms-flex-align: center;
           align-items: center;
   z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 * body main #preview-container img {
   width: auto;
   height: 100%;
-  z-index: 0;
 }
 
 * body .loader {
