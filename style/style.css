@@ -28,12 +28,14 @@
       -ms-flex-align: center;
           align-items: center;
   border-bottom: 2px solid white;
-  padding: 20px;
-  margin: 30px 0;
+  padding: 20px 0;
+  margin: 30px auto;
+  width: 93%;
 }
 
 * body header h1 {
   margin-right: auto;
+  font-size: 35px;
 }
 
 * body header h1 a {
