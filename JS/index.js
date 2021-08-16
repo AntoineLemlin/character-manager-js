@@ -8,7 +8,7 @@ window.addEventListener("load", function(){
 // Function to display the cards on the main page
 const displayCards = (obj) => {
   // For each person in the object...
-  obj.forEach(({ id, image, name, description }) => {
+  obj.forEach(({ id, image, name, description, shortDescription }) => {
     const target = document.getElementById("grid");
     // I get the template in the HTML...
     const template = document.getElementById("template-id");
@@ -20,7 +20,7 @@ const displayCards = (obj) => {
     // same with the name
     clone.getElementById("name").innerHTML = name;
     // same with the description
-    clone.getElementById("description").innerHTML = description;
+    clone.getElementById("description").innerHTML = shortDescription;
     // I pass the variable id in the url
     clone.getElementById("see-character").href = `view.html?${id}`
 

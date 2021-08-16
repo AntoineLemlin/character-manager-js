@@ -130,6 +130,7 @@
   font-size: 13px;
   width: 100%;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 * body main .grid .card a {
