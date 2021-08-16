@@ -20,21 +20,24 @@ function imageUploaded() {
   reader.readAsDataURL(file);
 }
 
+// If the character already exists
 document.addEventListener("DOMContentLoaded", async function () {
-  await getURL();
+  let url = await fetch("https://character-database.becode.xyz/characters");
+    const obj = await url.json();
 
   obj.forEach(({ id, image, name, shortDescription, description }) => {
     if (id === queryString) {
       exist = true;
 
-      base64String = image;
+      base64String = image; //In the function above, I set the preview as base64String
       console.log(image);
       document.getElementById(
         "preview"
       ).src = `data:image/jpeg;base64,${image}`;
-      document.getElementById("fname").value = name;
+      document.getElementById("fname").value = name; // value and not innerhtml !
       document.getElementById("short-description").value = shortDescription;
       document.getElementById("description").value = description;
+      document.head.title.innerHTML = "Update Character"
     }
   });
 });
@@ -50,28 +53,32 @@ document
       return;
     }
 
+    // object destructuring
     const [name, shortDescription, description] = values;
 
+    // ! is to reverse the condition
     if (!exist) {
       const response = await fetch(
         "https://character-database.becode.xyz/characters",
         {
+          // create a new character with POST because the character doesn't exist yet
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
             image: base64String,
-            name,
+            name,  // = name: name
             shortDescription,
             description,
           }),
         }
-      );
-    } else {
+      ).then(success => alert('Success')).catch(console.error("There was an error"));
+    } else if(exist) {
       const response = await fetch(
-        `https://character-database.becode.xyz/characters/${queryString}`,
+        `https://character-database.becode.xyz/characters/${queryString}`, // Don't forget the ${queryString}`
         {
+           // update a character with PUT because the character exists
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -89,3 +96,21 @@ document
 
         document.location.href = "index.html"
   });
+
+document.getElementById("delete-character").addEventListener('click', async function(){
+    if (confirm("Do you really want to delete this?")) {
+        const response = await fetch(
+          `https://character-database.becode.xyz/characters/${queryString}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-type": "application/json", // Indicates the content
+            },
+          }
+        )
+          .then((res) => console.log("Successfuly deleted"))
+          .catch((error) => console.error(error)); // or res.json()
+  
+        document.location.href = "index.html";
+      }
+})

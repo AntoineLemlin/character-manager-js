@@ -5,21 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-    <title>View Character</title>
+    <title>Character Manager</title>
 </head>
 <body>
     <header>
         <h1>Character Manager</h1>
     </header>
     <main>
-        <section>
-            <img id="image" src="" alt="">
+        <section id="section-view">
+            <div id="image-container"><img id="image" src="" alt=""></div><br>
             <h2 id="name"></h2>
             <h6 id="short-description"></h6>
             <p id="description"></p>
 
-            <a id="btn-update" href="#">Update Character</a>
-            <a id="btn-delete" href="#">Delete Character</a>
+            <div id="buttons-container">
+                <a id="btn-update" href="#">Update Character</a>
+                <a id="btn-delete" href="#">Delete Character</a>
+            </div>
         </section>
     </main>
     

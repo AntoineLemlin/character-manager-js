@@ -1,23 +1,19 @@
+// I get the id from the url and remove the ?
 let queryString = location.search.substring(1);
 
 document.addEventListener("DOMContentLoaded", async function () {
-  // I get the id from the url and remove the ?
 
-  await getURL();
+      let url = await fetch(`https://character-database.becode.xyz/characters/${queryString}`);
+      const obj = await url.json();
 
-  obj.forEach(({ id, image, name, shortDescription, description }) => {
-    if (id === queryString) {
-      console.log(name);
-
-      document.getElementById("image").src = `data:image/jpeg;base64,${image}`;
-      document.getElementById("name").innerHTML = name;
-      document.getElementById("short-description").innerHTML = shortDescription;
-      document.getElementById("description").innerHTML = description;
+      document.getElementById("image").src = `data:image/jpeg;base64,${obj.image}`;
+      document.getElementById("name").innerHTML = obj.name;
+      document.getElementById("short-description").innerHTML = obj.shortDescription;
+      document.getElementById("description").innerHTML = obj.description;
       document.getElementById(
         "btn-update"
-      ).href = `create_character.html?${id}`;
-    }
-  });
+      ).href = `create_character.html?${obj.id}`;
+ 
 });
 
 document

@@ -1,5 +1,5 @@
 // Function to display the cards on the main page
-const displayCards = () => {
+const displayCards = (obj) => {
   // For each person in the object...
   obj.forEach(({ id, image, name, description }) => {
     const target = document.getElementById("grid");
@@ -25,8 +25,27 @@ const displayCards = () => {
 // When the page loads
 document.addEventListener("DOMContentLoaded", async function () {
   // I get the data from the url
-  await getURL();
+  let url = await fetch("https://character-database.becode.xyz/characters");
+  const obj = await url.json();
   console.log(obj);
+  
   // I display the cards
-  displayCards();
+  displayCards(obj);
 });
+
+
+document.getElementById("search-bar").addEventListener("keyup", function(){
+  let filter = this.value.toUpperCase();
+  const cards = document.querySelectorAll("#card");
+
+  cards.forEach((card) => {
+    const namePerson = card.getElementsByTagName("h2")[0];
+
+    if (namePerson.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+

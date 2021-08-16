@@ -16,6 +16,7 @@
 
     header {
       display: flex;
+      flex-direction: row;
       justify-content: flex-end;
       align-items: center;
       border-bottom: 2px solid white;
@@ -164,6 +165,56 @@
 
         &:hover{
             background-color: #1b5bff;
+        }
+      }
+
+      #section-view{
+        width: 100%;
+        background: #363333;
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+
+        #image-container{
+          display: inline-block;
+          position: relative;
+          position: relative;
+          width: 150px;
+          height: 150px;
+          overflow: hidden;
+          border-radius: 50%;
+
+          img {
+            width: auto;
+            height: 100%;
+            z-index: 0;
+          }
+        }
+
+        #name{
+          font-family: 'Permanent Marker', cursive;
+          font-weight: 400;
+          font-size: 40px;
+        }
+
+        #short-description{
+          margin-top: 35px;
+        }
+
+        #description{
+          margin-top: 55px;
+        }
+
+        #buttons-container a{
+            text-decoration: none;
+
+            &:nth-child(1){
+              color: white;
+              background-color: #4B7CFB;
+            }
         }
       }
     }
