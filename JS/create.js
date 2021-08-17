@@ -175,7 +175,7 @@ quill.root.addEventListener("keyup", function(){
     document.getElementById("counter-description").innerHTML = `350/350`
     alert("You reached the limit of characters")
 }else{
-  document.getElementById("counter-description").innerHTML = `${this.children[0].innerHTML.length}/350`
+  document.getElementById("counter-description").innerHTML = `${this.children[0].textContent.length}/350`
 }
 })
 
