@@ -65,6 +65,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       document.getElementById("fname").value = name; // value and not innerhtml !
       document.getElementById("short-description").value = shortDescription;
       document.getElementById("editor").children[0].innerHTML = description;
+      document.getElementById("counter-name").innerHTML = `${document.getElementById("fname").value.length}/20`;
+      document.getElementById("counter-short-description").innerHTML = `${document.getElementById("short-description").value.length}/70`;
+      document.getElementById("counter-description").innerHTML = `${document.getElementById("editor").children[0].textContent.length}/350`;
     }
   });
 });
@@ -155,22 +158,20 @@ document
     }
   });
 
-/* WRITE A NAME  */
+// Write a name - short description - Description
 document.getElementById("fname").addEventListener("keyup", function () {
   console.log(this.value.length);
   document.getElementById("counter-name").innerHTML = `${this.value.length}/20`;
 });
 
-/* WRITE A SHORT DESCRIPTION */
 document.getElementById("short-description").addEventListener("keyup", function () {
   console.log(this.value.length);
   document.getElementById("counter-short-description").innerHTML = `${this.value.length}/70`;
 });
 
-/* WRITE A DESCRIPTION */
 quill.root.addEventListener("keyup", function(){
-  if(this.children[0].innerHTML.length >= 350) {
-    this.children[0].innerHTML = this.children[0].innerHTML.substr(0, 350);
+  if(this.children[0].textContent.length >= 350) {
+    this.children[0].textContent = this.children[0].textContent.substr(0, 350);
     document.getElementById("counter-description").innerHTML = `350/350`
     alert("You reached the limit of characters")
 }else{
