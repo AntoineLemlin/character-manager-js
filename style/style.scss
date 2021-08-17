@@ -21,7 +21,7 @@
       border-bottom: 2px solid white;
       padding: 20px 0;
       margin: 30px auto;
-      width: 93%;
+      width: 95%;
 
       h1 {
         margin-right: auto;
@@ -398,7 +398,7 @@
           height: 50px;
           font-style: italic;
           font-family: "Permanent Marker", cursive;
-          font-size: 45px;
+          font-size: 3vw;
           color: white;
           margin-top: 10px;
           margin-bottom: 10px;
@@ -500,5 +500,9 @@
       flex-direction: column;
       align-items: center;
     }
+  }
+  
+  #fname{
+    font-size: 3vw;
   }
 }

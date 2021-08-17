@@ -20,6 +20,30 @@ function imageUploaded() {
   reader.readAsDataURL(file);
 }
 
+function checkInputs(){
+  if(inputs[0].value == ""){
+    inputs[0].style.border= "1px solid red"
+  }else{
+    inputs[0].style.border = "1px solid green"
+  }
+  if(inputs[1].value == ""){
+    inputs[1].style.border = "1px solid red"
+  }else{
+    inputs[1].style.border= "1px solid green"
+  }
+
+  if(document.getElementById("editor").children[0].textContent == ""){
+    document.getElementById("editor").style.borderColor = "red"
+  }else{
+    document.getElementById("editor").style.borderColor = "green"
+  }
+  if(base64String == ""){
+    document.getElementById("preview-container").style.borderColor = "red"
+  }else{
+    document.getElementById("preview-container").style.borderColor = "green"
+  }
+}
+
 // If the character already exists
 document.addEventListener("DOMContentLoaded", async function () {
   let url = await fetch("https://character-database.becode.xyz/characters");
@@ -47,10 +71,10 @@ document
     let values = inputs.map(({ value }) => value.trim());
     const descriptionEditor =
       document.getElementById("editor").children[0].innerHTML;
-    
 
-    if (values.some(({ value }) => value === "") || document.getElementById("editor").children[0].innerHTML === "") {
-      alert("there is an input empty");
+    if(inputs[0].value == "" && inputs[1].value == "" || document.getElementById("editor").children[0].textContent == "" || base64String == ""){
+      alert("Fill all the inputs")
+      checkInputs()
       return;
     }
 
@@ -75,7 +99,7 @@ document
           }),
         }
       )
-        .then((success) => alert("Success"))
+        .then((success) => alert("Character added!"))
         .catch(console.error("There was an error"));
     } else if (exist) {
       const response = await fetch(
@@ -95,7 +119,7 @@ document
           }),
         }
       )
-        .then((success) => alert("Success"))
+        .then((success) => alert("Character updated!"))
         .catch(console.error("There was an error"));
     }
 
