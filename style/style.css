@@ -513,7 +513,7 @@
   height: 50px;
   font-style: italic;
   font-family: "Permanent Marker", cursive;
-  font-size: 3vw;
+  font-size: clamp(3vw, 35px, 3rem);
   color: white;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -634,9 +634,6 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-  }
-  #fname {
-    font-size: 3vw;
   }
 }
 /*# sourceMappingURL=style.css.map */

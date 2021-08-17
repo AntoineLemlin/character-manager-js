@@ -20,8 +20,8 @@
                 <form action="">
                     <div id="preview-container"><img id="preview" src="" alt=""></div><br>
                     <input onchange="imageUploaded()" type="file" id="myFile" name="filename"><br>
-                    <input class="get-data" placeholder="Write a name" type="text" id="fname" name="fname"><br><br>
-                    <input class="get-data" placeholder="Write a short description" type="text" id="short-description" name="short-description"><br><br>
+                    <input class="get-data" placeholder="Write a name" type="text" id="fname" name="fname" minlength="14" maxlength="20" ><br><br>
+                    <input class="get-data" placeholder="Write a short description" type="text" id="short-description" name="short-description" minlength="54" maxlength="70"><br><br>
                     <div type="text" id="editor" name="description"></div><br><br>
                     <div id="buttons-container">
                         <a href="#" id="add-character" >Save changes</a>
