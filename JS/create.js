@@ -169,8 +169,10 @@ document.getElementById("short-description").addEventListener("keyup", function 
 
 /* WRITE A DESCRIPTION */
 quill.root.addEventListener("keyup", function(){
-  if(this.children[0].innerHTML.length > 350) {
+  if(this.children[0].innerHTML.length >= 350) {
     this.children[0].innerHTML = this.children[0].innerHTML.substr(0, 350);
+    document.getElementById("counter-description").innerHTML = `350/350`
+    alert("You reached the limit of characters")
 }else{
   document.getElementById("counter-description").innerHTML = `${this.children[0].innerHTML.length}/350`
 }
