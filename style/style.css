@@ -434,6 +434,8 @@
   border-radius: 35px;
   margin-bottom: 100px;
   padding: 30px 0 0 0;
+  min-height: 100vh;
+  height: auto;
 }
 
 * body #section-create form {
@@ -449,6 +451,69 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+* body #section-create form .input-container {
+  width: 100%;
+  height: 60px;
+  position: relative;
+  margin-top: 10px;
+}
+
+* body #section-create form .input-container #fname {
+  background-color: #727071;
+  font-style: italic;
+  font-family: "Permanent Marker", cursive;
+  font-size: clamp(3vw, 35px, 3rem);
+  color: white;
+  margin-bottom: 10px;
+  /* Positionner le placeholder correctement */
+  padding-left: 25px;
+  padding-top: 25px;
+  padding-bottom: 35px;
+  width: 100%;
+  height: 100%;
+}
+
+* body #section-create form .input-container #short-description {
+  background-color: #727071;
+  color: white;
+  padding-left: 25px;
+  font-style: italic;
+  width: 100%;
+  height: 100%;
+}
+
+* body #section-create form .input-container .counter-name, * body #section-create form .input-container .counter-short-description, * body #section-create form .input-container .counter-description {
+  font-size: 12px;
+  font-weight: 500;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  color: white;
+  width: auto;
+  height: auto;
+  padding: 5px 10px;
+}
+
+* body #section-create form .input-container .counter-description {
+  padding: 0 10px;
+}
+
+* body #section-create form .input-editor {
+  width: 100%;
+  position: relative;
+}
+
+* body #section-create form .input-editor .counter-description {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
 }
 
 * body #section-create form #myFile {
@@ -508,37 +573,14 @@
   margin-bottom: 0px;
 }
 
-* body #section-create form #fname {
-  background-color: #727071;
-  height: 50px;
-  font-style: italic;
-  font-family: "Permanent Marker", cursive;
-  font-size: clamp(3vw, 35px, 3rem);
-  color: white;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  /* Positionner le placeholder correctement */
-  padding-left: 25px;
-  padding-top: 25px;
-  padding-bottom: 35px;
-}
-
-* body #section-create form #short-description {
-  background-color: #727071;
-  color: white;
-  height: 50px;
-  padding-left: 25px;
-  font-style: italic;
-  margin-bottom: 10px;
-}
-
 * body #section-create input {
   color: white;
   background-color: #727071;
   border-radius: 15px;
   width: 100%;
-  margin: auto;
-  border: none;
+  margin: 0 auto;
+  border: 1px solid white;
+  outline: none;
 }
 
 * body #section-create input::-webkit-input-placeholder {

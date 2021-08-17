@@ -18,11 +18,15 @@
         <section id ="section-create">
         
                 <form action="">
-                    <div id="preview-container"><img id="preview" src="" alt=""></div><br>
+                    <div id="preview-container">
+                        <img id="preview" src="" alt="">
+                    </div><br>
                     <input onchange="imageUploaded()" type="file" id="myFile" name="filename"><br>
-                    <input class="get-data" placeholder="Write a name" type="text" id="fname" name="fname" minlength="14" maxlength="20" ><br><br>
-                    <input class="get-data" placeholder="Write a short description" type="text" id="short-description" name="short-description" minlength="54" maxlength="70"><br><br>
-                    <div type="text" id="editor" name="description"></div><br><br>
+                    <div class="input-container"><input class="get-data" placeholder="Write a name" type="text" id="fname" name="fname" minlength="14" maxlength="20" > 
+                        <div id="counter-name" class="counter-name">0/20</div></div><br><br>
+                    <div class="input-container"><input class="get-data" placeholder="Write a short description" type="text" id="short-description" name="short-description" minlength="54" maxlength="70"><div id="counter-short-description" class="counter-short-description">0/70</div></div><br><br>
+                    <div class="input-editor"> <div type="text" id="editor" name="description"></div><div id="counter-description" class="counter-description">0/350</div></div><br><br>
+                   <br><br>
                     <div id="buttons-container">
                         <a href="#" id="add-character" >Save changes</a>
                         <a href="#" id="delete-character">Delete</a>
@@ -32,12 +36,6 @@
         </section>
     </main>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <script>
-        var quill = new Quill('#editor', {
-            theme: 'snow'
-        });
-        quill.root.dataset.placeholder = "Write the description here"
-        </script>
         <script src="JS/create.js"></script>
 
 </body>

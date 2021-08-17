@@ -1,3 +1,8 @@
+var quill = new Quill('#editor', {
+  theme: 'snow'
+});
+quill.root.dataset.placeholder = "Write the description here"
+
 // Array of all inputs which stocks all the values in the order of the HTML
 const inputs = Array.from(document.querySelectorAll(".get-data"));
 let base64String = "";
@@ -20,27 +25,27 @@ function imageUploaded() {
   reader.readAsDataURL(file);
 }
 
-function checkInputs(){
-  if(inputs[0].value == ""){
-    inputs[0].style.border= "1px solid red"
-  }else{
-    inputs[0].style.border = "1px solid green"
+function checkInputs() {
+  if (inputs[0].value == "") {
+    inputs[0].style.border = "1px solid red";
+  } else {
+    inputs[0].style.border = "1px solid green";
   }
-  if(inputs[1].value == ""){
-    inputs[1].style.border = "1px solid red"
-  }else{
-    inputs[1].style.border= "1px solid green"
+  if (inputs[1].value == "") {
+    inputs[1].style.border = "1px solid red";
+  } else {
+    inputs[1].style.border = "1px solid green";
   }
 
-  if(document.getElementById("editor").children[0].textContent == ""){
-    document.getElementById("editor").style.borderColor = "red"
-  }else{
-    document.getElementById("editor").style.borderColor = "green"
+  if (document.getElementById("editor").children[0].textContent == "") {
+    document.getElementById("editor").style.borderColor = "red";
+  } else {
+    document.getElementById("editor").style.borderColor = "green";
   }
-  if(base64String == ""){
-    document.getElementById("preview-container").style.borderColor = "red"
-  }else{
-    document.getElementById("preview-container").style.borderColor = "green"
+  if (base64String == "") {
+    document.getElementById("preview-container").style.borderColor = "red";
+  } else {
+    document.getElementById("preview-container").style.borderColor = "green";
   }
 }
 
@@ -72,9 +77,13 @@ document
     const descriptionEditor =
       document.getElementById("editor").children[0].innerHTML;
 
-    if(inputs[0].value == "" && inputs[1].value == "" || document.getElementById("editor").children[0].textContent == "" || base64String == ""){
-      alert("Fill all the inputs")
-      checkInputs()
+    if (
+      (inputs[0].value == "" && inputs[1].value == "") ||
+      document.getElementById("editor").children[0].textContent == "" ||
+      base64String == ""
+    ) {
+      alert("Fill all the inputs");
+      checkInputs();
       return;
     }
 
@@ -145,3 +154,27 @@ document
       document.location.href = "index.html";
     }
   });
+
+/* WRITE A NAME  */
+document.getElementById("fname").addEventListener("keyup", function () {
+  console.log(this.value.length);
+  document.getElementById("counter-name").innerHTML = `${this.value.length}/20`;
+});
+
+/* WRITE A SHORT DESCRIPTION */
+document.getElementById("short-description").addEventListener("keyup", function () {
+  console.log(this.value.length);
+  document.getElementById("counter-short-description").innerHTML = `${this.value.length}/70`;
+});
+
+/* WRITE A DESCRIPTION */
+quill.root.addEventListener("keyup", function(){
+  if(this.children[0].innerHTML.length > 350) {
+    this.children[0].innerHTML = this.children[0].innerHTML.substr(0, 350);
+}else{
+  document.getElementById("counter-description").innerHTML = `${this.children[0].innerHTML.length}/350`
+}
+})
+
+
+
